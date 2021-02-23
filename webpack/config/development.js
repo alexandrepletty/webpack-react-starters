@@ -1,4 +1,5 @@
 // --- Dependency
+const ESLintPlugin = require('eslint-webpack-plugin')
 const {merge} = require('webpack-merge')
 const common = require('./common')
 
@@ -14,5 +15,18 @@ module.exports = merge(common, {
 		open: true,
 		hot: true,
 		inline: true
-	}
+	},
+	module: {
+		rules: [
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				enforce: 'pre',
+				use: ['eslint-loader']
+			},
+		]
+	},
+	plugins: [
+		new ESLintPlugin()
+	]
 })
