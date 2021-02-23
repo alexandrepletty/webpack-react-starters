@@ -9,9 +9,10 @@ const common = require('./common')
 module.exports = merge(common, {
 	mode: 'production',
 	output: {
-		filename: 'index-[chunkhash].js',
+		filename: '[name]-[chunkhash].js',
 		path: path.resolve('dist'),
-		chunkFilename: 'vendor-[id]-[contenthash].js'
+		chunkFilename: 'vendor-[id]-[contenthash].js',
+		assetModuleFilename: 'images/[hash][ext][query]'
 	},
 	optimization: {
 		minimize: true,

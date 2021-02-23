@@ -8,19 +8,34 @@ module.exports = {
 	module: {
 		rules: [
 			{
+				test: /\.(svg|png|jpe?g|gif)$/i,
+				loader: 'file-loader',
+				options: {
+					name: 'assets/images/[name].[ext]',
+				}
+			},
+			{
 				test: /\.(s[ac]|c)ss$/i,
-				use: [MiniCssExtractPlugin.loader, 'css-loader', {
-					loader: 'postcss-loader',
-					options: {
-						postcssOptions: {
-							plugins: [
-								['postcss-preset-env', {
-									browsers: ['last 2 version', 'ie > 8']
-								}]
-							]
+				use: [
+					{
+						loader: MiniCssExtractPlugin.loader,
+						options: {publicPath: ''}
+					},
+					'css-loader',
+					{
+						loader: 'postcss-loader',
+						options: {
+							postcssOptions: {
+								plugins: [
+									['postcss-preset-env', {
+										browsers: ['last 2 version', 'ie > 8']
+									}]
+								]
+							}
 						}
-					}
-				}, 'sass-loader']
+					},
+					'sass-loader'
+				]
 			},
 			{
 				test: /\.js$/,
