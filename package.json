@@ -1,0 +1,31 @@
+{
+	"name": "webpack-react-starters",
+	"version": "1.0.0",
+	"description": "Webpack starters for making new React projects",
+	"main": "index.js",
+	"repository": "https://github.com/alexandrepletty/webpack-react-starters.git",
+	"author": "Alexandre Pletty <alexandre.pletty@gmail.com>",
+	"license": "MIT",
+	"private": true,
+	"scripts": {
+		"start": "webpack serve --config ./webpack/config/development.js",
+		"build": "webpack --config ./webpack/config/production.js"
+	},
+	"dependencies": {
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.13.0",
+		"@babel/preset-env": "^7.13.0",
+		"@babel/preset-react": "^7.12.13",
+		"babel-loader": "^8.2.2",
+		"clean-webpack-plugin": "^3.0.0",
+		"html-webpack-plugin": "^5.2.0",
+		"terser-webpack-plugin": "^5.1.1",
+		"webpack": "^5.24.0",
+		"webpack-cli": "^4.5.0",
+		"webpack-dev-server": "^3.11.2",
+		"webpack-merge": "^5.7.3"
+	}
+}
